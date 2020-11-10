@@ -41,7 +41,7 @@ void keyboard_input(int);
 void find_character();
 
 void setup(){
-    pinMode(2, INPUT);   // checkButton
+    pinMode(2, INPUT);  // checkButton
     pinMode(3, INPUT);  // 0th BTN
     pinMode(4, INPUT);  // 1st BTN
     pinMode(5, INPUT);  // 2nd BTN
@@ -52,13 +52,13 @@ void setup(){
 
 void loop(){
     int check_button = digitalRead(CHECK);
+    int input_state = 0;
     
-    
-    keyboard_input(check_button);
-    find_character();     
+    input_state = keyboard_input(check_button);
+    find_character(input_state);     
 }
 
-void keyboard_input(int check_button){
+int keyboard_input(int check_button){
 
     if(check_button){
         delay(500);
@@ -70,33 +70,39 @@ void keyboard_input(int check_button){
             }else 
                 input[i] = 1;
 
-        Serial.print(input[i]);
+            Serial.print(input[i]);
         }
     
-    Serial.println(';');
+        Serial.println(';');
+        
+        return 1;
     }
     
 }
 
-void find_character(){
-    int flag = 1;
+void find_character(int state){
+    int flag;
     char chrt;
     
-    for(int i = 0; i < RAWS: i++){
-        for(int j = 0; j < COLUMNS; j++){
-            if(alphabet[i][j] != input[j]){
-                flag = 0;
-                break;
+    if(state){
+        for(int i = 0; i < RAWS; i++){
+                flag = 1;
+        
+            for(int j = 0; j < COLUMNS; j++){
+                if(alphabet[i][j] != input[j]){
+                    flag = 0;
+                    break;
+                }
+            }
+        
+            if(flag){
+                chrt = alphabet[i][COLUMNS - 1];
+                Serial.println(chrt);
+                return;
             }
         }
-
-        if(flag){
-            chrt = alphabet[i][COLUMNS];
-            Serial.println(chrt);
-            return 0;
-        }
+        
+        Serial.println("Caractere nao encontrado");
     }
-
-    Serial.println("Caractere nao encontrado");
     
 }
