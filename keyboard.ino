@@ -37,8 +37,8 @@ int alphabet[RAWS][COLUMNS] = {
 
 int input[6] = {0, 0, 0, 0, 0, 0};
 
-void keyboard_input(int);
-void find_character();
+int keyboard_input(int);
+void find_character(int);
 
 void setup(){
     pinMode(2, INPUT);  // checkButton
