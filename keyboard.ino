@@ -1,61 +1,61 @@
-
-#define CHECK        2                         // porta do botao de checagem
-#define LOWER_BUTTON 3          // porta de menor valor numerico de um botao
+#define CHECK        2          // check button gate
+#define LOWER_BUTTON 3          // reference gate for the buttons connected in sequence
 
 #define COLUMNS 7
 #define RAWS    26
 
 
-// braille shapes
-int character[RAWS][COLUMNS] = {
+// braille alphabet
+int alphabet[RAWS][COLUMNS] = {
     {1, 0, 0, 0, 0, 0, ‘A’},
-    {1, 0, 1, 0, 0, 0, ‘B’},
-    {1, 0, 1, 0, 0, 0, ‘B’},
-    {1, 0, 1, 0, 0, 0, ‘B’},
-    {1, 0, 1, 0, 0, 0, ‘B’},
-    {1, 0, 1, 0, 0, 0, ‘B’},
-    {1, 0, 1, 0, 0, 0, ‘B’},
-    {1, 0, 1, 0, 0, 0, ‘B’},
-    {1, 0, 1, 0, 0, 0, ‘B’},
-    {1, 0, 1, 0, 0, 0, ‘B’},
-    {1, 0, 1, 0, 0, 0, ‘B’},
-    {1, 0, 1, 0, 0, 0, ‘B’},
-    {1, 0, 1, 0, 0, 0, ‘B’},
-    {1, 0, 1, 0, 0, 0, ‘B’},
-    {1, 0, 1, 0, 0, 0, ‘B’},
-    {1, 0, 1, 0, 0, 0, ‘B’},
-    {1, 0, 1, 0, 0, 0, ‘B’},
-    {1, 0, 1, 0, 0, 0, ‘B’},
-    {1, 0, 1, 0, 0, 0, ‘B’},
-    {1, 0, 1, 0, 0, 0, ‘B’},
-    {1, 0, 1, 0, 0, 0, ‘B’},
-    {1, 0, 1, 0, 0, 0, ‘B’},
-    {1, 0, 1, 0, 0, 0, ‘B’},
-    {1, 0, 1, 0, 0, 0, ‘B’},
-    {1, 0, 1, 0, 0, 0, ‘B’},
-    {1, 0, 1, 0, 0, 0, ‘B’},
-    {1, 0, 1, 0, 0, 0, ‘B’}
+    {1, 1, 0, 0, 0, 0, ‘B’},
+    {1, 0, 0, 1, 0, 0, ‘C’},
+    {1, 0, 0, 1, 1, 0, ‘D’},
+    {1, 0, 0, 0, 1, 0, ‘E’},
+    {1, 1, 0, 1, 0, 0, ‘F’},
+    {1, 1, 0, 1, 1, 0, ‘G’},
+    {1, 1, 0, 0, 1, 0, ‘H’},
+    {0, 1, 0, 1, 0, 0, ‘I’},
+    {0, 1, 0, 1, 1, 0, ‘J’},
+    {1, 0, 1, 0, 0, 0, ‘K’},
+    {1, 1, 1, 0, 0, 0, ‘L’},
+    {1, 0, 1, 1, 0, 0, ‘M’},
+    {1, 0, 1, 1, 1, 0, ‘N’},
+    {1, 0, 1, 0, 1, 0, ‘O’},
+    {1, 1, 1, 1, 0, 0, ‘P’},
+    {1, 1, 1, 1, 1, 0, ‘Q’},
+    {1, 1, 1, 0, 1, 0, ‘R’},
+    {0, 1, 1, 1, 0, 0, ‘S’},
+    {0, 1, 1, 1, 1, 0, ‘T’},
+    {1, 0, 1, 0, 0, 1, ‘U’},
+    {1, 1, 1, 0, 0, 1, ‘V’},
+    {0, 1, 0, 1, 0, 1, ‘W’},
+    {1, 0, 1, 1, 0, 1, ‘X’},
+    {1, 0, 1, 1, 1, 1, ‘Y’},
+    {1, 0, 1, 0, 1, 1, ‘Z’}
 };
 
 int input[6] = {0, 0, 0, 0, 0, 0};
 
 void keyboard_input(int);
+void find_character();
 
 void setup(){
     pinMode(2, INPUT);   // checkButton
-    pinMode(3, INPUT);
-    pinMode(4, INPUT);
-    pinMode(5, INPUT);
-    pinMode(6, INPUT);
-    pinMode(7, INPUT);
-    pinMode(8, INPUT);
+    pinMode(3, INPUT);  // 0th BTN
+    pinMode(4, INPUT);  // 1st BTN
+    pinMode(5, INPUT);  // 2nd BTN
+    pinMode(6, INPUT);  // 3rd BTN
+    pinMode(7, INPUT);  // 4th BTN
+    pinMode(8, INPUT);  // 5th BTN
     Serial.begin(9600);
 
 void loop(){
     int check_button = digitalRead(CHECK);
     
-    //input state
+    
     keyboard_input(check_button);
+    find_character();     
 }
 
 void keyboard_input(int check_button){
@@ -75,4 +75,28 @@ void keyboard_input(int check_button){
     
     Serial.println(';');
     }
+    
+}
+
+void find_character(){
+    int flag = 1;
+    char chrt;
+    
+    for(int i = 0; i < RAWS: i++){
+        for(int j = 0; j < COLUMNS; j++){
+            if(alphabet[i][j] != input[j]){
+                flag = 0;
+                break;
+            }
+        }
+
+        if(flag){
+            chrt = alphabet[i][COLUMNS];
+            Serial.println(chrt);
+            return 0;
+        }
+    }
+
+    Serial.println("Caractere nao encontrado");
+    
 }
