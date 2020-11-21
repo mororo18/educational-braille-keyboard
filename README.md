@@ -17,4 +17,4 @@ Simulation With Sound Response
 
        pip3 install selenium
        pip3 install playsound
-       pip3 install webdriver_manager # educational-braille-keyboard
+       pip3 install webdriver_manager 
