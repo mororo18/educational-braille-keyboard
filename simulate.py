@@ -29,6 +29,7 @@ def get_char():
 
     else:
         print("\nOutputing Error Sound..\n")
+        playsound("sounds\error.wav")
 
 def monitor_observer():
 
