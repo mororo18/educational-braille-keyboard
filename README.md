@@ -7,6 +7,15 @@ Model
 ------
 ![Model](/src/model.png)
 
+Usage
+------
+The six on/off front buttons represents a custom braille cell that can be write by changing the input state of the buttons. 
+The 'confirm' button, at the top, takes this current cell and makes that the corresponding character be emitted.
+<p float="left">
+    <img src="/src/example1.png" width="400" /> 
+    <img src="/src/A.png" width="400" />
+</p>
+
 Online Simulation 
 ------------------
 The simulation is available on [Tinkercad](https://www.tinkercad.com/things/6Vrjlavkf2A/viewel).
