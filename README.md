@@ -9,12 +9,27 @@ Model
 
 Usage
 ------
-The six on/off front buttons represents a custom braille cell that can be written by changing the input state of the buttons. 
-The 'confirm' button, at the top, takes this current cell and makes that the corresponding character be emitted.
+The six front buttons represents a custom braille cell that can be written by changing the state (on/off) of the buttons. 
+The 'confirm' button, at the top, takes this current cell and makes that the sound of the corresponding character be emitted.
 
 ![Usage](/imgs/example.jpg)
 
 _The cells above represent the letter 'A'._
+
+Components
+-----------
+
+|Qnt	|Name                                            |
+|------|------------------------------------------------|	
+|01	|Arduino Uno (or Nano)                           |
+|06 	|Switch button                                   |
+|01 	|Push Button                                     |
+|07	|1kΩ Resistor                                    |
+|01	|Mini Speaker  0.5w 8Ω                           |
+|01 	|Switch on/off (power)                           |
+|01	|9V Battery                                      |
+|01	|Snap Connector to DC Power Adapter for Arduino  |
+|01 	|Breadboard                                      |
 
 Online Simulation 
 ------------------
