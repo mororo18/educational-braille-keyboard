@@ -14,6 +14,8 @@ The 'confirm' button, at the top, takes this current cell and makes that the cor
 
 ![Usage](/imgs/example.jpg)
 
+_The cells above represent the letter 'A'._
+
 Online Simulation 
 ------------------
 The simulation is available on [Tinkercad](https://www.tinkercad.com/things/6Vrjlavkf2A/viewel).
