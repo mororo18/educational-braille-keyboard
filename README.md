@@ -20,7 +20,7 @@ Components
 -----------
 
 |Qnt	|Name                                            |
-|------|------------------------------------------------|	
+|-------|------------------------------------------------|	
 |01	|Arduino Uno (or Nano)                           |
 |06 	|Switch Push Button on/off                       |
 |01 	|Push Button                                     |
@@ -30,6 +30,8 @@ Components
 |01	|9V Battery                                      |
 |01	|Snap Connector to DC Power Adapter for Arduino  |
 |01 	|Breadboard                                      |
+|01     |Mini SD Card                                    |
+|01     |Mini SD Card MP3 Sound Module                   |
 
 Online Simulation 
 ------------------
