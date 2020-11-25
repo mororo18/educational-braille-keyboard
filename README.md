@@ -22,7 +22,7 @@ Components
 |Qnt	|Name                                            |
 |------|------------------------------------------------|	
 |01	|Arduino Uno (or Nano)                           |
-|06 	|Switch button                                   |
+|06 	|Switch Push Button on/off                       |
 |01 	|Push Button                                     |
 |07	|1kΩ Resistor                                    |
 |01	|Mini Speaker  0.5w 8Ω                           |
