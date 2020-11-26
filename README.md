@@ -16,22 +16,25 @@ The 'confirm' button, at the top, takes this current cell and makes that the sou
 
 _The cells above represent the letter 'A'._
 
-Components
------------
+Schematics and Components
+--------------------------
+
+![Schematics](/imgs/schematics-project-new.jpg)
 
 |Qnt	|Name                                            |
 |-------|------------------------------------------------|	
 |01	|Arduino Uno (or Nano)                           |
 |06 	|Switch Push Button on/off                       |
 |01 	|Push Button                                     |
-|07	|1kΩ Resistor                                    |
+|08	|1kΩ Resistor                                    |
+|01	|680Ω Resistor                                   |
 |01	|Mini Speaker  0.5w 8Ω                           |
 |01 	|Switch on/off (power)                           |
 |01	|9V Battery                                      |
 |01	|Snap Connector to DC Power Adapter for Arduino  |
 |01 	|Breadboard                                      |
 |01     |Mini SD Card                                    |
-|01     |Mini SD Card MP3 Sound Module                   |
+|01     |DFPlayer Mini Module                            |
 
 Online Simulation 
 ------------------
