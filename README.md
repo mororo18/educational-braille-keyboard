@@ -1,4 +1,4 @@
-# Educational Braille-keyboard Arduino based
+# BrailleBox - BB/BraBo
 
 The purpose of making this keyboard is turn more easy and funny the alphabetization of children with blindness or some level of visual impairment. 
 It basically works by translating the inserted braille cell to the sound of its respective character in the Latin alphabet.
