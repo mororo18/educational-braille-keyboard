@@ -12,8 +12,8 @@
 #define NUM_FRST_RW    0
 #define NUM_LST_RW     9
 
-#define PONCT_FRST_RW 26
-#define PONCT_LST_RW  32
+#define PUNCT_FRST_RW 26
+#define PUNCT_LST_RW  32
 //modes search scope END
 
 #define BRAILLE_BTNS 6
@@ -65,7 +65,7 @@ int alphabet[RAWS][COLUMNS] = {
     {0, 0, 1, 0, 0, 0, '.'},
     {0, 1, 0, 0, 0, 1, '?'},
     {0, 1, 1, 0, 1, 0, '!'},
-    {0, 0, 1, 0, 0, 1, ','}
+    {0, 0, 1, 0, 0, 1, '-'}
 };
 
 int input[BRAILLE_BTNS] = {0, 0, 0, 0, 0, 0};
@@ -139,8 +139,8 @@ void find_character(int state){
             last_raw = NUM_LST_RW;
             break;
         case PONCT:
-            first_raw = PONCT_FRST_RW;
-            last_raw = PONCT_LST_RW;
+            first_raw = PUNCT_FRST_RW;
+            last_raw = PUNCT_LST_RW;
         default:
             break;
     }
@@ -194,7 +194,7 @@ bool change_mode(bool state){
                 Serial.println("Numeric");
                 break;
             case PONCT:
-                Serial.println("Ponctuation");
+                Serial.println("Punctuation");
             default:
                 break;
         }
