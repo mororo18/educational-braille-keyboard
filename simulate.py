@@ -21,7 +21,7 @@ punct = {
 driver = webdriver.Chrome(ChromeDriverManager().install())
 driver.maximize_window()
 
-def what_mode():
+def monitor_observe_mode():
     mode_message = "[+] Current Input Mode:"
     MODE_POS = 24
 
@@ -47,7 +47,7 @@ def symb_to_word(symb):
         return punct[symb]
 
 
-def get_char():
+def monitor_observe_char():
     char_message = "[+] Corresponding character:"
     error_message = "[!] Error message:"
     CHAR_POS = 30
@@ -74,7 +74,7 @@ def get_char():
         print("\nOutputing Error Sound..\n")
         playsound("sounds\error.wav")
 
-def monitor_observer():
+def monitor_observe():
 
     while(1):
         # serial monitor content
@@ -84,13 +84,13 @@ def monitor_observer():
         if (content != ""):
             sleep(2)
 
-            what_mode()
-            get_char()
+            monitor_observe_mode()
+            monitor_observe_char()
 
             clear_button = driver.find_element_by_css_selector(clear_button_CSS_SELECTOR)
             clear_button.click()
 
-def start_simulation():
+def start():
     
     driver.get('https://www.tinkercad.com/things/ktPH2wSIrIG/viewel')
     sleep(6)
@@ -102,6 +102,6 @@ def start_simulation():
     monitor_button = driver.find_element_by_id(monitor_button_ID)
     monitor_button.click()
 
-    monitor_observer()
+    monitor_observe()
         
-start_simulation()
+start()
