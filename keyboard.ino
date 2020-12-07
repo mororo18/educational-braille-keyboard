@@ -1,35 +1,28 @@
-#define MODE_BTN     9
+#define MODE_BTN     9          // mode button pin
 #define CHECK        2          // pin of check button input
 #define LOWER_BUTTON 3          // braille button with the lowest pin number
+#define BRAILLE_BTNS 6          // quantity of buttons
 
 #define COLUMNS 7
 #define RAWS    33
 
-// modes search scope BEGIN
+// BEGIN - scopes of search of each MODE
 #define ALPH_FRST_RW   0 
-#define ALPH_LST_RW    25
+#define ALPH_LST_RW   25
 
 #define NUM_FRST_RW    0
 #define NUM_LST_RW     9
 
 #define PUNCT_FRST_RW 26
 #define PUNCT_LST_RW  32
-//modes search scope END
+// END
 
-#define BRAILLE_BTNS 6
 #define MODES 3                // quantity of implemented modes
-
-/*
-   current keyboard mode, starting w alphabetic
-
-   MODES
- */
-
 #define ALPHA 0
 #define NUM   1
-#define PONCT  2
+#define PONCT 2
 
-int mode = 0;
+int mode = ALPHA;
 
 // braille alphabet
 int alphabet[RAWS][COLUMNS] = {
@@ -85,8 +78,8 @@ void setup(){
     pinMode(7, INPUT);  // 4th BTN
     pinMode(8, INPUT);  // 5th BTN
     pinMode(9, INPUT);  // Mode BTN
-    Serial.begin(9600);
 
+    Serial.begin(9600);
     Serial.println("[+] Current Input Mode: Alphabetic");
 }
 
@@ -129,23 +122,25 @@ void find_character(int state){
     int first_raw, last_raw;
     char chrt;
 
-    switch(mode){
-        case ALPHA:
-            first_raw = ALPH_FRST_RW;
-            last_raw = ALPH_LST_RW;
-            break;
-        case NUM:
-            first_raw = NUM_FRST_RW;
-            last_raw = NUM_LST_RW;
-            break;
-        case PONCT:
-            first_raw = PUNCT_FRST_RW;
-            last_raw = PUNCT_LST_RW;
-        default:
-            break;
-    }
 
     if(state){
+
+        switch(mode){
+            case ALPHA:  // 0
+                first_raw = ALPH_FRST_RW;
+                last_raw = ALPH_LST_RW;
+                break;
+            case NUM:    // 1
+                first_raw = NUM_FRST_RW;
+                last_raw = NUM_LST_RW;
+                break;
+            case PONCT:  // 2
+                first_raw = PUNCT_FRST_RW;
+                last_raw = PUNCT_LST_RW;
+            default:
+                break;
+        }
+
         for(int i = first_raw; i <= last_raw; i++){
             flag = 1;
 
@@ -165,7 +160,7 @@ void find_character(int state){
                     alphabet_to_num(&chrt);
 
                 // monitor print
-                Serial.println("[+] Corresponding character:\t'"+(String)chrt+"';");                
+                Serial.println("[+] Corresponding character:\t'" + (String)chrt + "';");                
                 Serial.println("[+] Outputing character sound...\n");
                 return;
             }
