@@ -35,6 +35,7 @@ def monitor_observe_mode():
         filename = "sounds/" + mode +".wav"
         message = "\nOutputing \'" + mode + " Mode\' Sound..."
         print(message)
+        playsound("sounds/introduce-mode.wav")
         playsound(filename)
 
 
@@ -82,7 +83,7 @@ def monitor_observe():
         content = content.text
 
         if (content != ""):
-            sleep(2)
+            sleep(1)
 
             monitor_observe_mode()
             monitor_observe_char()
@@ -102,6 +103,7 @@ def start():
     monitor_button = driver.find_element_by_id(monitor_button_ID)
     monitor_button.click()
 
+    playsound("sounds/introduction.wav")
     monitor_observe()
         
 start()
