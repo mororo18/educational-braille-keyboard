@@ -10,11 +10,11 @@ Model
 Usage
 ------
 The six front buttons represents a custom braille cell that can be written by changing the state (on/off) of the buttons. 
-The 'confirm' button, at the top, takes this current cell and makes that the sound of the corresponding character be emitted.
+The 'confirm' button, at the top, takes this current cell and makes that the sound of the corresponding character be emitted. And the push button, on the side, changes the input mode between *Alphabetical*, *Numeric* and *Punctuation*.
 
 ![Usage](/imgs/example.jpg)
 
-_The cells above represent the letter 'A'._
+_The cells above represents the letter 'A' in the Alphabetical Mode, and represents the number '1' in the Numeric Mode._
 
 Schematics and Components
 --------------------------
@@ -25,8 +25,8 @@ Schematics and Components
 |-------|------------------------------------------------|	
 |01	|Arduino Uno (or Nano)                           |
 |06 	|Switch Push Button on/off                       |
-|01 	|Push Button                                     |
-|08	|1kΩ Resistor                                    |
+|02 	|Push Button                                     |
+|09	|1kΩ Resistor                                    |
 |01	|680Ω Resistor                                   |
 |01	|Mini Speaker  0.5w 8Ω                           |
 |01 	|Switch on/off (power)                           |
