@@ -19,7 +19,7 @@ _The cells above represent the letter 'A'._
 Schematics and Components
 --------------------------
 
-![Schematics](/imgs/schematics-project-new.jpg)
+![Schematics](/imgs/schematics-new.svg)
 
 |Qnt	|Name                                            |
 |-------|------------------------------------------------|	
